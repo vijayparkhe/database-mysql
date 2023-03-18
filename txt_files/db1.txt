@@ -1,1 +1,5 @@
 this is purely based examaple nothing else.
+now we are working in git reset command
+1. git -soft 
+2. git -mixed
+3. git -hard
