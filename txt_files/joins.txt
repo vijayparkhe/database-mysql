@@ -57,7 +57,7 @@ mysql> select * from inventry_employee;
 |  5 | Ganesh | Male   | ganesh@gmail.com   |  65256.36 |
 +----+--------+--------+--------------------+-----------+
 
-
+this command will be executed on command line
  select inventry_employee.id,inventry_role.role,inventry_employee.name from inventry_employee inner join inventry_role on inventry_employee.name=inventry_role.role;
 +----+--------+--------+
 | id | role   | name   |
