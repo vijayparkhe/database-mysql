@@ -1,0 +1,8 @@
+ACID properties
+A-> Atomocity --> transaction zal tr purn hoil nahitr kahich honar nahi
+C->consistency--> before the transaction and after the transaction database is consistent
+I->Isolation/Integrity -->n transactions should be isolated. 
+D-> Durability --> whetever transactions happens it should be written or stored permantely  on nonvolatile memory.
+
+
+what is transction--> the whole process is transaction

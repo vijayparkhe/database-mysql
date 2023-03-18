@@ -1,0 +1,106 @@
+select * from employee_info;
++-----+------+----------+------+----------------+------------+
+| id  | name | salary   | age  | email_id       | address    |
++-----+------+----------+------+----------------+------------+
+| 101 | ac   | 32356.00 |   21 | ac@gmail.com   | aurangabad |
+| 102 | ac21 | 21365.36 |   32 | ac21@gmail.com | beed       |
+| 103 | ac31 | 42653.00 |   26 | ac31@gmail.com | latur      |
+| 104 | ac41 | 10256.00 |   18 | ac41@gmail.com | beed       |
+| 105 | ac51 | 25654.36 |   29 | ac51@gmail.com | pune       |
++-----+------+----------+------+----------------+------------+
+
+--------order by-----
+ select * from employee_info order by salary desc;
++-----+------+----------+------+----------------+------------+
+| id  | name | salary   | age  | email_id       | address    |
++-----+------+----------+------+----------------+------------+
+| 103 | ac31 | 42653.00 |   26 | ac31@gmail.com | latur      |
+| 101 | ac   | 32356.00 |   21 | ac@gmail.com   | aurangabad |
+| 105 | ac51 | 25654.36 |   29 | ac51@gmail.com | pune       |
+| 102 | ac21 | 21365.36 |   32 | ac21@gmail.com | beed       |
+| 104 | ac41 | 10256.00 |   18 | ac41@gmail.com | beed       |
++-----+------+----------+------+----------------+------------+
+
+--------where---------
+select * from employee_info where address='aurangabad';
++-----+------+----------+------+--------------+------------+
+| id  | name | salary   | age  | email_id     | address    |
++-----+------+----------+------+--------------+------------+
+| 101 | ac   | 32356.00 |   21 | ac@gmail.com | aurangabad |
++-----+------+----------+------+--------------+------------+
+
+-----------select distinct-----------------------
+select distinct address from employee_info;
++------------+
+| address    |
++------------+
+| aurangabad |
+| beed       |
+| latur      |
+| pune       |
++------------+
+--------------between--------------------------
+all the record between 25 to 35 is shown
+select * from employee_info where age between 25 and 35;
++-----+------+----------+------+----------------+---------+
+| id  | name | salary   | age  | email_id       | address |
++-----+------+----------+------+----------------+---------+
+| 102 | ac21 | 21365.36 |   32 | ac21@gmail.com | beed    |
+| 103 | ac31 | 42653.00 |   26 | ac31@gmail.com | latur   |
+| 105 | ac51 | 25654.36 |   29 | ac51@gmail.com | pune    |
++-----+------+----------+------+----------------+---------+
+
+--------------and----------
+ select name,address from employee_info where address='beed' and name='ac21';
++------+---------+
+| name | address |
++------+---------+
+| ac21 | beed    |
++------+---------+
+
+---------------or-----------
+ select name,address from employee_info where address='beed' or name='ac41';
++------+---------+
+| name | address |
++------+---------+
+| ac21 | beed    |
+| ac41 | beed    |
++------+---------+
+
+---------------in------------
+ya madhe 21 or 32 yachech data dila jail
+ select * from employee_info where age in (21,32);
++-----+------+----------+------+----------------+------------+
+| id  | name | salary   | age  | email_id       | address    |
++-----+------+----------+------+----------------+------------+
+| 101 | ac   | 32356.00 |   21 | ac@gmail.com   | aurangabad |
+| 102 | ac21 | 21365.36 |   32 | ac21@gmail.com | beed       |
++-----+------+----------+------+----------------+------------+
+
+
+-----like----
+  select * from employee_info where address like '%ed';
++-----+------+----------+------+----------------+---------+
+| id  | name | salary   | age  | email_id       | address |
++-----+------+----------+------+----------------+---------+
+| 102 | ac21 | 21365.36 |   32 | ac21@gmail.com | beed    |
+| 104 | ac41 | 10256.00 |   18 | ac41@gmail.com | beed    |
++-----+------+----------+------+----------------+---------+
+
+ select * from employee_info where address like 'p%';
++-----+------+----------+------+----------------+---------+
+| id  | name | salary   | age  | email_id       | address |
++-----+------+----------+------+----------------+---------+
+| 105 | ac51 | 25654.36 |   29 | ac51@gmail.com | pune    |
++-----+------+----------+------+----------------+---------+
+
+-----limit----
+select * from employee_info limit 2,2;
++-----+------+----------+------+----------------+---------+
+| id  | name | salary   | age  | email_id       | address |
++-----+------+----------+------+----------------+---------+
+| 103 | ac31 | 42653.00 |   26 | ac31@gmail.com | latur   |
+| 104 | ac41 | 10256.00 |   18 | ac41@gmail.com | beed    |
++-----+------+----------+------+----------------+---------+
+
+-----

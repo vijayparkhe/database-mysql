@@ -1,0 +1,89 @@
+-----------------------DATABASE------------------------
+database- is a container
+In order to maintain consistency in a database, before and after the transaction, certain properties are followed. 
+types of sql command
+SQL commands---->
+					1. Data Definition Language (DDL)
+					2. Data Manipulation Language (DML)
+					3. Transaction Control Language (TCL)
+					4. Data Control Language (DCL)
+
+1.DDL (Data Definition Language) :
+Data Definition Language is used to define the database structure or schema. 
+DDL is also used to specify additional properties of the data. 
+The storage structure and access methods used by the database system by a set of statements in a special type 
+of DDL called a data storage and definition language.
+These statements define the implementation details of the database schema, which are usually hidden from the users. 
+The data values stored in the database must satisfy certain consistency constraints. 
+
+2. DML (Data Manipulation Language) :
+DML statements are used for managing data with in schema objects. 
+DML are of two types :-> 
+	1. Procedural DMLs : require a user to specify what data are needed and how to get those data.
+	2. Declarative DMLs (also referred as Non-procedural DMLs) : Require a user to specify what data are needed without specifying how to get those data. Declarative DMLs are usually easier to learn and use than procedural DMLs.However, since a user does not have to specify how to get the data, the database system has to figure out an efficient means of accessing data.
+DML commands are used to modify the database. It is responsible for all form of changes in the database.
+The command of DML is not auto-committed that means it can't permanently save all the changes in the database. They can be rollback.
+Here are some commands that come under DML:
+a. INSERT	b. UPDATE	c. DELETE	d. SELECT
+
+a. INSERT: The INSERT statement is a SQL query. It is used to insert data into the row of a table.
+syntax: example
+insert into student_info (id,name,salary,age,email) values(101,'BBBB',2652.35,24,'bbbb@gmail.com');
+
+insert into student_info values(104,'dddd',5324.20,32,'dddd@gmail.com','Beed'),
+(105,'eeee',2536.25,25,'eeee@gmail.com','Jalna'),(106,'ffff',3256.2,21,'ffff@gmail.com','Fardapur');
+
+b. UPDATE: This command is used to update or modify the value of a column in the table.
+syntax:
+update student_info set address='Nanded',salary=32562.25 where id=106;
+
+c. DELETE: It is used to remove one or more row from a table.
+syntax:
+delete from student_info where address='solapur';
+
+3. TCL (Transaction Control Language) :
+Transaction Control Language commands are used to manage transactions in the database. 
+These are used to manage the changes made by DML-statements. 
+It also allows statements to be grouped together into logical transactions.
+
+Examples of TCL commands – 
+COMMIT: Commit command is used to permanently save any transaction
+            into the database.
+ROLLBACK: This command restores the database to last committed state.
+            It is also used with savepoint command to jump to a savepoint
+            in a transaction.
+SAVEPOINT: Savepoint command is used to temporarily save a transaction so
+            that you can rollback to that point whenever necessary.
+
+4. DCL (Data Control Language) :
+A Data Control Language is a syntax similar to a computer programming language used to control access 
+to data stored in a database (Authorization). 
+In particular, it is a component of Structured Query Language (SQL). 
+
+Examples of DCL commands : 
+GRANT: allow specified users to perform specified tasks.
+Example
+GRANT SELECT, UPDATE ON MY_TABLE TO SOME_USER, ANOTHER_USER;  
+
+REVOKE: cancel previously granted or denied permissions.
+Example
+REVOKE SELECT, UPDATE ON MY_TABLE FROM USER1, USER2; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+These are called ACID properties. 
+				A=Atomocity

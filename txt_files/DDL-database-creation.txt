@@ -1,0 +1,296 @@
+SQL-Structured Query Language--> it is a language which can be used with mysql, oracle, postgres.
+
+database -> 	Mysql	Postgresql
+default name->	root	postgresql
+port->		3306	5432
+
+mysql - it is a software
+
+interview question
+what is CartesianProduct-->
+	cartesianproduct = nested loop
+	cartesianproduct madhe first table madhil row he second table madhil row sobat multiply hotat.
+ex. in first table 1,2,3 record present and i second table 1,2,3,4,5 record present astil tr [1-1,1-2,1-3,1-4,1-5,2-1,2-3,2-4,2-5....] like this 5*3=15 records miltil  
+CARTESIAN JOIN: The CARTESIAN JOIN is also known as CROSS JOIN. In a CARTESIAN JOIN there is a join for each row of one table to every row of another table. This usually happens when the matching column or WHERE condition is not specified.
+In the absence of a WHERE condition the CARTESIAN JOIN will behave like a CARTESIAN PRODUCT . i.e., the number of rows in the result-set is the product of the number of rows of the two tables.
+In the presence of WHERE condition this JOIN will function like a INNER JOIN.
+Generally speaking, Cross join is similar to an inner join where the join-condition will always evaluate to True
+
+
+
+database Objects chapter
+users --> root is a user
+tables--> it is for to hold data. ya madhe rows/columns astat
+views--> temperary tables astat. Restricted access to the data from a same table or different table madhun kahi rows or column gheun separate table create kela tr tyala views mhantat. pn ya views chya tabble change kela tr original database madhe change hoto.
+keys--> for mappings purpose. 
+	data madhe association asnyasathi keys use kartat.
+	1. primary Key
+	2. candidate key
+	3.Foreign Key
+	4.super key
+	5.alternate key
+	6. composite key
+	7. artificial key
+Indexes -->
+	it is for the faster retrieval of data.
+	primary key is a default index for every tables, and there can be multiple indexes for same tables.
+Normalization -->it is a way of arranging data 
+
+Sequences --> Auto increment Primary Key generation
+
+triggers -->whenever there is an event--> i want to perform some action.
+	ex. ekadhya person cha date of birth nusar tyacha age change zal pahije.
+
+Procedures --> similar kind of actions need to perform repeatetly 
+	similar set of lines of code i want to execute repeately and only required parameter will be changed. always be on database side. we just to call it with set of parameters.
+	
+Functions --> fakt call karnyasathi astat. apn CRUD operations nahi karu shakat.
+
+Permissions --> 
+----------------------------------------------
+keys--> for mappings, data madhe association asnyasathi keys use kartat.
+what is keys--> keys is a concept through which uniquely identify a record from a table
+1. primary Key --> properties --> unique, not null, immutable
+	in order to retrieve a specific record from table
+2.candidate key --> primary of another table is a foreign keys. except primary key jo bhi column (only one column) ha data uniquely retrieve karun deto tyala candidate key mhantat 
+3.Foreign Key --> between two table reference or relation denyasathi Foreign key use hote
+4.super key --> A candidate key is a super key. candidate key cha group banvun tyamadhun jo pn best match milel tyala superkey mhantat
+5.alternate key
+6.composite key --> set of multiple attributes ko represent karte hai.atleast two attributes required. ex. id+name+email_id he darv aatributes or column he ekatra karun data ha uniquely retrieve karun milel tyala composite key mahntat.
+7.artificial key
+
+
+----------------------------------------------
+database- is a container	
+types of sql command
+DDL---data defination language
+DDL tells about structure
+	1. create---object create karega
+	2. alter---you can change size, name, type of column
+	3. Drop---removes table alongwith structure
+	4. truncate----removes the table but keeps a stucture
+	5. Rename----used for table remaining 
+ 
+!-----------------------------------------------------------------------------------------------------------------------
+! drop ---> 
+!		table---> drop----whatever objects are associate with this table--will be removed--ex. id ko agar sequence dila asel tr table sobat to pn drp houn jail
+!		structure--->drop
+!		data will be removed
+!		data + structure--removes
+!------------------------------------------------------------------------------------------------------------------------
+!
+! Truncate---->
+!		only data will be removed
+!		structure and metadata(seq) will be preserved
+!-----------------------------------------------------------------------------------------------------------------------
+! DELETE---->
+!		can be used with where conditions---we can remove specific row/rows/all ---structure will be untouched
+!		
+!---------------------------------------------------------------------------------------------------------------------
+		
+Difference between DELETE, DROP and TRUNCATE
+1. DELETE : 
+Basically, it is a Data Manipulation Language Command (DML). 
+It is used to delete one or more tuples of a table. 
+With the help of the “DELETE” command, we can either delete all the rows in one go or can delete rows one by one.
+ i.e., we can use it as per the requirement or the condition using the Where clause. It is comparatively slower than the TRUNCATE command.
+ The TRUNCATE command does not remove the structure of the table.
+we can recover a data i delete command when auto-commit is off.
+SYNTAX – 
+If we want to delete all the rows of the table:
+DELETE from;
+SYNTAX – 
+If we want to delete the row of the table as per the condition then we use the WHERE clause,
+DELETE from  WHERE  ;
+Note – Here we can use the “ROLLBACK” command to restore the tuple because it does not auto-commit.
+
+2. DROP : 
+It is a Data Definition Language Command (DDL). 
+It is used to drop the whole table. With the help of the “DROP” command we can drop (delete) the whole structure in one go i.e. 
+it removes the named elements of the schema. By using this command the existence of the whole table is finished or say lost. 
+
+SYNTAX – 
+If we want to drop the table:
+DROP table ;
+Note – Here we can’t restore the table by using the “ROLLBACK” command because it auto commits.
+
+
+3. TRUNCATE : 
+It is also a Data Definition Language Command (DDL). 
+ It is used to delete all the rows of a relation (table) in one go.
+ With the help of the “TRUNCATE” command, we can’t delete the single row as here WHERE clause is not used. 
+ By using this command the existence of all the rows of the table is lost. 
+ It is comparatively faster than the delete command as it deletes all the rows fastly. 
+
+SYNTAX – 
+If we want to use truncate :
+TRUNCATE;
+Note – Here we can’t restore the tuples of the table by using the “ROLLBACK” command
+
+
+
+
+procedure of  
+create database tempdb;
+use tempdb;
+create table employee_info(id int, 
+	name varchar(20), 
+	salary float, 
+	age int,
+	email varchar(20),
+	address varchar(20)
+primary key (id)
+)
+show tables;		#command
+desc employee_info;	#command
+
+WE create key---primary key
+string(varchar) types 
+---CHAR
+---VARCHAR
+----TINYBLOB
+----BLOB---THIS IS FOR MULTIMEDIA STORE
+----LONGTEXT---LONG TEXT
+tempdb---> is database or schema
+inside a table
+rows---> tuple/row/record
+column----> column/attribute
+Keys are also used to create relationship among different database tables or views.
+SQL constraints are used to specify rules for the data in a table
+constraints---> primary key ---> unique + not null + immutable
+	    ---> foreign key ---> primary of another table
+	   ---> unique      ---> unique + single null + mutable
+	   ---> not  null   ---> value is not null
+           ---> default ---> agar info nahi diya to mujhe defauult value dena hai
+	   ---> case---> restricted value dena hai
+we cant give more than one primary key in a same table
+---------------------------------------------
+		----by web source----
+SQL Constraints
+SQL constraints are used to specify rules for the data in a table.
+
+Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraint and the data action, the action is aborted.
+
+Constraints can be column level or table level. Column level constraints apply to a column, and table level constraints apply to the whole table.
+
+The following constraints are commonly used in SQL:
+
+NOT NULL - Ensures that a column cannot have a NULL value
+UNIQUE - Ensures that all values in a column are different
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+FOREIGN KEY - Prevents actions that would destroy links between tables
+CHECK - Ensures that the values in a column satisfies a specific condition
+DEFAULT - Sets a default value for a column if no value is specified
+CREATE INDEX - Used to create and retrieve data from the database very quickly
+
+-------------Another example--------
+create table student_info(
+    -> id int (5),
+    -> name varchar(20),
+    -> salary float(10),
+    -> age int (5),
+    -> email varchar(20) unique,
+    -> address varchar(20) default 'Pune',
+    -> primary key (id)
+    -> );
+we want to insert a value by following method
+
+insert into student_info values (101,'AAAA',2350,25,'aaaa@gmail.com','Aurangabad');
+--------answer will be-------
+mysql> select * from student_info;
++-----+------+--------+------+----------------+------------+
+| id  | name | salary | age  | email          | address    |
++-----+------+--------+------+----------------+------------+
+| 101 | AAAA |   2350 |   25 | aaaa@gmail.com | Aurangabad |
++-----+------+--------+------+----------------+------------+
+
+ORM-----Object relation mapping
+
+insert into student_info (id,name,salary,age,email) values(101,'BBBB',2652.35,24,'bbbb@gmail.com');
+
+in this case default value of address was given so in a insert address was not given 
+mysql> select * from student_info;
++-----+------+---------+------+----------------+------------+
+| id  | name | salary  | age  | email          | address    |
++-----+------+---------+------+----------------+------------+
+| 101 | AAAA |    2350 |   25 | aaaa@gmail.com | Aurangabad |
+| 102 | BBBB | 2652.35 |   24 | bbbb@gmail.com | Pune       |
++-----+------+---------+------+----------------+------------+
+
+
+insert into student_info(name,salary,email,age,id,address) values('cccc',4235.25,'cccc@gmail.com',28,103,'solapur');
+
+ select  * from student_info;
++-----+------+---------+------+----------------+------------+
+| id  | name | salary  | age  | email          | address    |
++-----+------+---------+------+----------------+------------+
+| 101 | AAAA |    2350 |   25 | aaaa@gmail.com | Aurangabad |
+| 102 | BBBB | 2652.35 |   24 | bbbb@gmail.com | Pune       |
+| 103 | cccc | 4235.25 |   28 | cccc@gmail.com | solapur    |
++-----+------+---------+------+----------------+------------+
+---------Bulk Insert---------------
+insert into student_info values(104,'dddd',5324.20,32,'dddd@gmail.com','Beed'),
+(105,'eeee',2536.25,25,'eeee@gmail.com','Jalna'),(106,'ffff',3256.2,21,'ffff@gmail.com','Fardapur');
+
+ select * from student_info;
++-----+------+---------+------+----------------+------------+
+| id  | name | salary  | age  | email          | address    |
++-----+------+---------+------+----------------+------------+
+| 101 | AAAA |    2350 |   25 | aaaa@gmail.com | Aurangabad |
+| 102 | BBBB | 2652.35 |   24 | bbbb@gmail.com | Pune       |
+| 103 | cccc | 4235.25 |   28 | cccc@gmail.com | solapur    |
+| 104 | dddd |  5324.2 |   32 | dddd@gmail.com | Beed       |
+| 105 | eeee | 2536.25 |   25 | eeee@gmail.com | Jalna      |
+| 106 | ffff |  3256.2 |   21 | ffff@gmail.com | Fardapur   |
++-----+------+---------+------+----------------+------------+
+
+---------delete method-------------------
+delete from student_info where address='solapur';
+
+answer will be below
+
+select * from student_info;
++-----+------+---------+------+----------------+------------+
+| id  | name | salary  | age  | email          | address    |
++-----+------+---------+------+----------------+------------+
+| 101 | AAAA |    2350 |   25 | aaaa@gmail.com | Aurangabad |
+| 102 | BBBB | 2652.35 |   24 | bbbb@gmail.com | Pune       |
+| 104 | dddd |  5324.2 |   32 | dddd@gmail.com | Beed       |
+| 105 | eeee | 2536.25 |   25 | eeee@gmail.com | Jalna      |
+| 106 | ffff |  3256.2 |   21 | ffff@gmail.com | Fardapur   |
++-----+------+---------+------+----------------+------------+
+
+***********************
+delete or update method ----> it is mandetory use of 'where' condition
+***********************
+
+--------------update method-------------------
+ update student_info set address='Nanded',salary=32562.25 where id=106;
+ 
+ answer will be below
+ 
+ select * from student_info;
++-----+------+---------+------+----------------+------------+
+| id  | name | salary  | age  | email          | address    |
++-----+------+---------+------+----------------+------------+
+| 101 | AAAA |    2350 |   25 | aaaa@gmail.com | Aurangabad |
+| 102 | BBBB | 2652.35 |   24 | bbbb@gmail.com | Pune       |
+| 104 | dddd |  5324.2 |   32 | dddd@gmail.com | Beed       |
+| 105 | eeee | 2536.25 |   25 | eeee@gmail.com | Jalna      |
+| 106 | ffff | 32562.2 |   21 | ffff@gmail.com | Nanded     |
++-----+------+---------+------+----------------+------------+ 
+
+---------------------------------------------
+create database studydb;
+use studydb;
+create table employee_study(
+id int(5),
+name varchar(20),
+designation varchar (20),
+gender varchar(10),
+age (5),
+address varchar(20)
+primary key (id)
+);
+
+------------------------------------------

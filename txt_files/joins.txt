@@ -1,0 +1,66 @@
+----Joins-----
+all the types of joins are not supported in mysql
+types of joins
+1. LEFT JOIN
+(all the record from left table + matching record from right table)<-- he sarv record yetil.
+
+2. RIGHT JOIN
+(all the record from right table + matching record from left table) <-- he sarv record yetil.
+
+3. INNER JOIN
+common record from both left and right table.
+
+4. FULL OUTER JOIN
+sarv record yeil ya madhe. (all the record from (left + right) table)
+
+MySQL JOIN Types
+There are several MySQL JOIN types, and each type helps get different results when joining tables:
+
+1. INNER JOIN – Results return matching data from both tables.
+
+2. LEFT OUTER JOIN – Results are from the left table and matching data from the right table.
+
+3. RIGHT OUTER JOIN – Results are from the right table and matching data from the left table.
+
+4. FULL OUTER JOIN – Results are from both tables when there is matching data.
+
+5. CROSS JOIN – Results are a combination of every row from the joined tables.
+
+
+interview question
+what is CartesianProduct-->
+	cartesian product = nested loop
+
+CARTESIAN JOIN: The CARTESIAN JOIN is also known as CROSS JOIN. In a CARTESIAN JOIN there is a join for each row of one table to every row of another table. This usually happens when the matching column or WHERE condition is not specified.
+In the absence of a WHERE condition the CARTESIAN JOIN will behave like a CARTESIAN PRODUCT . i.e., the number of rows in the result-set is the product of the number of rows of the two tables.
+In the presence of WHERE condition this JOIN will function like a INNER JOIN.
+Generally speaking, Cross join is similar to an inner join where the join-condition will always evaluate to True
+------------------------------------------------------------------------------------------------
+
+select * from inventry_role;
++-----+--------------------+------+-----------+
+| id  | role               | code | empref_id |
++-----+--------------------+------+-----------+
+| 401 | SeniorEnginner     | SSE  |         1 |
+| 402 | AutomationEngineer | AME  |         1 |
++-----+--------------------+------+-----------+
+2 rows in set (0.01 sec)
+
+mysql> select * from inventry_employee;
++----+--------+--------+--------------------+-----------+
+| id | name   | gender | email              | salary    |
++----+--------+--------+--------------------+-----------+
+|  1 | vijay  | Male   | vijay90p@gmail.com |   2598.36 |
+|  2 | Dimple | Female | dimplep@gmail.com  |   9598.36 |
+|  3 | Kishor | Male   | kishor@gmail.com   | 102598.36 |
+|  4 | Sarika | Female | sarika@gmail.com   |  52598.36 |
+|  5 | Ganesh | Male   | ganesh@gmail.com   |  65256.36 |
++----+--------+--------+--------------------+-----------+
+
+
+ select inventry_employee.id,inventry_role.role,inventry_employee.name from inventry_employee inner join inventry_role on inventry_employee.name=inventry_role.role;
++----+--------+--------+
+| id | role   | name   |
++----+--------+--------+
+|  2 | Dimple | Dimple |
++----+--------+--------+
