@@ -4,7 +4,7 @@ database -> 	Mysql	Postgresql
 default name->	root	postgresql
 port->		3306	5432
 
-mysql - it is a software
+mysql - it is a software and sql is a language.
 
 interview question
 what is CartesianProduct-->
